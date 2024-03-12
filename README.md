@@ -50,10 +50,9 @@ composer install
 
 ### 설명
 
-#### vue 진입 포인트 : /resources/views/main-view.blade.php
+-   vue 진입 포인트 : /resources/views/main-view.blade.php
+-   vue 단일 js : /resources/sass/app.scss
+-   sass 단일 scss : /resources/sass/app.scss
+-   vue 관련 모든 소소 : /resources/j
 
-#### vue 단일 js : /resources/sass/app.scss
-
-#### sass 단일 scss : /resources/sass/app.scss
-
-#### vue 관련 모든 소소 : /resources/j
+작업환경 vscode 추천
