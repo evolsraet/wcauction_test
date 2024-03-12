@@ -8,7 +8,7 @@
 
 ### 준비
 
-git, docker(윈도우 WSL2), php, composer
+git, docker(윈도우 WSL2), php8~, composer
 
 ### 설치
 
