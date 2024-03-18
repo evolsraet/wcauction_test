@@ -8,7 +8,7 @@
 
 ### 준비
 
-git, docker(윈도우 WSL2), php8~, composer
+git, docker(윈도우 WSL2), 옵션 (php8~, composer)
 
 ### 설치
 
@@ -22,9 +22,17 @@ git clone https://github.com/evolsraet/wcauction_test.git
 
 #### php 의존성 업데이트
 
+##### 1. php 8 로 바로설치 (php8.x, composer 필요)
+
 ```bash
 composer install
 ```
+
+##### 2. 필요파일 위치 후 설치 (php, compose 불필요)
+https://drive.google.com/file/d/1JMak5vJLC6F3kHxrnGV-AmQYBoHUWnRw/view?usp=drive_link
+- 폴더/vendoer/laravel 안에서 압축풀기
+- docker-composer up -d
+- 도커내부에서 [laravel.test] composer install
 
 #### 도커 서버 실행
 
