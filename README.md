@@ -28,7 +28,7 @@ git clone https://github.com/evolsraet/wcauction_test.git
 composer install
 ```
 
-##### 2. 필요파일 위치 후 설치 (php, compose 불필요)
+##### 2. 필요파일 위치 후 설치 (php, compose 불필요) - 에러가능성 (24.8.18)
 https://drive.google.com/file/d/1JMak5vJLC6F3kHxrnGV-AmQYBoHUWnRw/view?usp=drive_link
 - 폴더/vendoer/laravel 안에서 압축풀기
 - docker-composer up -d
