@@ -5,11 +5,12 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-transparent">{{ $t('register') }}</div>
                     <div class="card-body">
+                    <!-- 회원가입 폼? 인데 새로고침을 방지하기 위해서 @submint prevent를 씀 submintRegister 폼제출을 한다 -->
                         <form @submit.prevent="submitRegister">
                             <div class="">
                                 <!-- Email -->
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">{{ $t('name') }}</label>
+                                    <label for="name" class="form-label">{{ $t('name') }}22</label>
                                     <input v-model="registerForm.name" id="name" type="text" class="form-control" autofocus>
                                     <!-- Validation Errors -->
                                     <div class="text-danger mt-1">
