@@ -1,15 +1,20 @@
 <template>
-    <div class="container pt-5">
+    <div class="container">
         <!-- 회원가입 권장 섹션 -->
-        <div class="regiest-content">
+        <div class="main-contenter">
         <div class="my-5 app-specific-size">
-            <div class="text-center">
-                <h2 class="my-4 fw-bold">회원가입시 판매가 빨라져요</h2>
-                <p class="bold-link text-muted">소셜 로그인 및 이메일로 가입 할 수 있어요.</p>
+            <div class="text-left">
+                <h2 class="mb-4 fw-bold ml-3">빠르고 간편한</h2>
+                <img src="@/resources/img/logo.png" class="logo mb-3 mr-2">
+                <p class="bold-link ml-3">내 차 판매, <mark class="custom-highlight">위카</mark>에서 도와드릴게요!</p>
             </div>
         </div>
         <div class="layout-container">
-            <div class="banner">Banner Content</div>
+            <div class="banner"><div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            </div>
+            </div>
+            </div>
             <div class="review-content">
                 <div class="apply-top text-start">
                     <h3 class="review-title">다른 사람들의 이용후기에요</h3>
@@ -86,56 +91,32 @@
                     </div>
                 </div>
             </div>
-            <div class="card login-card border-0">
+            <div class="card login-card border-0" :class="{ 'expanded': expanded }" @click="expandCard">
                 <div class="card-body">
                     <!-- 로그인 폼 -->
                     <form @submit.prevent="submitLogin">
-                        <div class="">
-                            <div class="my-3 text-left">
-                                <router-link :to="{ path: '/maintest' }" class="register-link text-muted ms-2">{{ $t('이미 위카 회원이신가요?') }}</router-link>
+                            <div>
+                                <input type="text" class="form-control border-0 border-bottom my-4" placeholder="소유자가 누구인가요?" v-model="username">
                             </div>
-                            <!-- 이메일 입력 -->
-                            <div class="mb-3">
-                                <label for="email" class="form-label"></label>
-                                <input v-model="loginForm.email" id="email" type="email" class="form-control border-0 border-bottom" required autofocus autocomplete="username" placeholder="이메일을 입력해주세요.">
-                                <!-- 유효성 검사 오류 메시지 -->
-                                <div class="text-danger mt-1">
-                                    <div v-for="message in validationErrors?.email">
-                                        {{ message }}
-                                    </div>
-                                </div>
+                            <div>
+                                <input type="text" class="form-control border-0 border-bottom mb-5" placeholder="차량 번호를 입력해주세요." v-model="carNumber">
                             </div>
-                            <!-- 비밀번호 입력 -->
-                            <div class="mb-4">
-                                <label for="password" class="form-label">
-                                </label>
-                                <input v-model="loginForm.password" id="password" type="password" class="form-control border-0 border-bottom" required autocomplete="current-password" placeholder="비밀번호를 입력해주세요.">
-                                <!-- 유효성 검사 오류 메시지 -->
-                                <div class="text-danger-600 mt-1">
-                                    <div v-for="message in validationErrors?.password">
-                                        {{ message }}
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 소셜 로그인 섹션 -->
-                            <div class="login-v2 my-5">
-                                <h3 class="mb-4 text-muted"><span>또는 소셜 로그인</span></h3>
-                                <ul class="login-v2-area">
-                                    <li><a href="#" class="google" title="google">Google</a></li>
-                                    <li><a href="#" class="naver" title="naver">Naver</a></li>
-                                    <li><a href="#" class="kakao" title="kakao">Kakao</a></li>
-                                </ul>
+                            <!--영상-->
+
+                            <div class="video-container my-4" style="background-color: #ccc;">
+                                <video width="100%" autoplay loop muted>
+                                    <source :src="videoSource" type="video/mp4">
+                                </video>
                             </div>
                              <!-- 로그인 버튼 -->
-                            <div class="flex items-center justify-end my-4">
+                             <div class="flex items-center justify-end my-2">
                                 <button class="btn btn-primary" :class="{ 'opacity-25': processing }" :disabled="processing">
-                                    {{ $t('로그인') }}
+                                    {{ $t('내 차 조회') }}
                                 </button>
                             </div>
-                        </div>
-                        <div class="register-link mt-5 text-center">
-                            <router-link :to="{ path: '/registertest' }" class="register-link">{{ $t('회원가입하기') }}</router-link>
-                        </div>
+                            <div class="flex items-center justify-end my-2">
+                                <router-link :to="{ path: '/maintest' }" class="btn btn-outline-primary text-danger">{{ $t('로그인') }}</router-link>
+                            </div>
                         <div class="text-muted mt-4 text-center">
                             <p class="fs-6">
                                 <a href="/copywrite" class="text-muted spacing">카피라이트</a> |
@@ -150,9 +131,20 @@
     </div>
 </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            videoSource: '/img/video/mainvideo.mp4'
+        }
+    }
+}
+</script>
 <script setup>
     import {useReview} from '@/composables/review';
-    import useAuth from '@/composables/auth' //인증관련 컴포저블
+    import useAuth from '@/composables/auth' 
+
+
 
     const {
         loginForm,
@@ -168,6 +160,9 @@
 
 </script>
 <style>
+.login-card {
+  transition: all 0.3s ease-in-out;
+}
     .app-specific-size {
         display: none;
     }

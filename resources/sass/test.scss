@@ -67,7 +67,7 @@
 
 .login-card {
     border-radius: 20px;
-    padding: 16px;
+    padding: 10px;
     display: flex;
     justify-content: center
 }
@@ -79,6 +79,10 @@
   }
 .card{
     box-shadow: 0 0 6px 0 rgba(27, 50, 142, 0.2) !important;
+}
+.review-content .card:hover{
+    box-shadow: 0 0 14px 4px rgba(27, 50, 142, 0.2) !important;
+    transition: box-shadow 0.5s ease;
 }
 .sidebar {
     position: fixed;
@@ -169,6 +173,7 @@
 .kakao:hover {
     border-radius: 50%;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.5s ease;
 }
 
 .google {
@@ -268,14 +273,26 @@
     a.text-muted.spacing {
         margin: 0px;
     }
+    .regiest-content .banner{
+        display: none;
+    }
     .layout-container .banner{
         display: none;
     }
-    .layout-container .review-content{
+    .regiest-content .review-content{
         display: none;
     }
-    .layout-container {
-        display: block !important;
+    .review-content .row {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* iOS에서 스크롤 성능 개선 */
+    }
+
+    .review-content .col {
+        flex: 0 0 auto; /* 카드가 그 내용에 맞게 너비를 설정하되, 줄어들지는 않도록 함 */
+        width: 50%; /* 카드의 너비를 화면의 50%로 설정, 필요에 따라 조정 */
+        max-width: none; /* 부트스트랩이 .col에 적용하는 최대 너비를 무시 */
     }
     .login-v2 h3:before{
         width: 70px;
@@ -284,11 +301,12 @@
     .login-v2 h3:after{
         width: 70px;
     }
+    .video-container{
+        display: none;
+    }
 }
  
 
 @media all and (max-width:340px){
-    .layout-container {
-        display: block ;
-    }
+
 }

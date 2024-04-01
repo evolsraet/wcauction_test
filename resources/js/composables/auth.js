@@ -40,7 +40,7 @@ export default function useAuth() {
         password_confirmation: "",
     });
 
-    const submitLogin = async () => {
+    const submitLogin = async() => {
         if (processing.value) return;
 
         processing.value = true;
@@ -48,7 +48,7 @@ export default function useAuth() {
 
         await axios
             .post("/login", loginForm)
-            .then(async (response) => {
+            .then(async(response) => {
                 await store.dispatch("auth/getUser");
                 await loginUser();
                 swal({
@@ -67,7 +67,7 @@ export default function useAuth() {
             .finally(() => (processing.value = false));
     };
 
-    const submitRegister = async () => {
+    const submitRegister = async() => {
         if (processing.value) return;
 
         processing.value = true;
@@ -75,7 +75,7 @@ export default function useAuth() {
 
         await axios
             .post("/register", registerForm)
-            .then(async (response) => {
+            .then(async(response) => {
                 // await store.dispatch('auth/getUser')
                 // await loginUser()
                 swal({
@@ -94,7 +94,7 @@ export default function useAuth() {
             .finally(() => (processing.value = false));
     };
 
-    const submitForgotPassword = async () => {
+    const submitForgotPassword = async() => {
         if (processing.value) return;
 
         processing.value = true;
@@ -102,7 +102,7 @@ export default function useAuth() {
 
         await axios
             .post("/api/forget-password", forgotForm)
-            .then(async (response) => {
+            .then(async(response) => {
                 swal({
                     icon: "success",
                     title: "We have emailed your password reset link! Please check your mail inbox.",
@@ -119,7 +119,7 @@ export default function useAuth() {
             .finally(() => (processing.value = false));
     };
 
-    const submitResetPassword = async () => {
+    const submitResetPassword = async() => {
         if (processing.value) return;
 
         processing.value = true;
@@ -127,7 +127,7 @@ export default function useAuth() {
 
         await axios
             .post("/api/reset-password", resetForm)
-            .then(async (response) => {
+            .then(async(response) => {
                 swal({
                     icon: "success",
                     title: "Password successfully changed.",
@@ -150,14 +150,14 @@ export default function useAuth() {
         getAbilities();
     };
 
-    const getUser = async () => {
+    const getUser = async() => {
         if (store.getters["auth/authenticated"]) {
             await store.dispatch("auth/getUser");
             await loginUser();
         }
     };
 
-    const logout = async () => {
+    const logout = async() => {
         if (processing.value) return;
 
         processing.value = true;
@@ -183,7 +183,7 @@ export default function useAuth() {
             });
     };
 
-    const getAbilities = async () => {
+    const getAbilities = async() => {
         await axios.get("/api/abilities").then((response) => {
             const permissions = response.data;
             const { can, rules } = new AbilityBuilder(createMongoAbility);
