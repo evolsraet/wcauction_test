@@ -1,3 +1,121 @@
+/*----------------------------
+    공통 - 메인 , 로그인
+-----------------------------*/
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.login-card {
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center
+}
+.login-card .card-body{
+    flex: 0 0 auto !important;
+}
+.login-card .card-body > *:not(:first-child) {
+    margin-top: 3rem;
+}
+
+.card{
+    box-shadow: 0 0 6px 0 rgba(27, 50, 142, 0.2) !important;
+}
+
+.login-card .form-control,
+.login-card .btn {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-card::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #dbdbdb;
+}
+
+.d-grid {
+    margin-left: -16px;
+    margin-right: -16px;
+}
+
+.review-content .card:hover{
+    box-shadow: 0 0 14px 4px rgba(27, 50, 142, 0.2) !important;
+    transition: box-shadow 0.5s ease;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, .3);
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform .3s ease-in-out;
+}
+
+.sidebar-enter-active,
+.sidebar-leave-active {
+    transition: transform .3s ease-in-out;
+}
+
+.sidebar-enter,
+.sidebar-leave-to {
+    transform: translateX(100%);
+}
+
+.main-content {
+    transition: margin-right .3s ease-in-out;
+    padding-top: 56px;
+}
+
+.main-content[style] {
+    margin-right: 250px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
+/*   text-style  */
+
+.bold-link {
+    font-weight: bold;
+}
+
+.text-muted {
+    color: #c8c8c8 !important;
+}
+
+.fw-bold {
+    font-weight: bold !important;
+}
+
+.custom-highlight {
+    background: linear-gradient(transparent 50%, #ffe7eb 50%);
+}
+
+.btn-lg {
+    font-size: 1rem !important;
+}
+
+
+/* 소셜 로그인 or 로그인 */
 .navbar-brand {
     background-image: url('../img/logo.png');
     background-size: contain;
@@ -33,127 +151,6 @@
     color: rgba(0, 0, 0, .55);
     border-color: rgba(0, 0, 0, 0);
 }
-
-.login-card .form-control,
-.login-card .btn {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.container-fluid {
-    padding-left: 0;
-    padding-right: 0;
-}
-.login-card::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: #dbdbdb;
-}
-
-
-.main-content {
-    padding-top: 56px;
-}
-
-.d-grid {
-    margin-left: -16px;
-    margin-right: -16px;
-}
-
-.login-card {
-    border-radius: 20px;
-    padding: 10px;
-    display: flex;
-    justify-content: center
-}
-.login-card .card-body{
-    flex: 0 0 auto !important;
-}
-.login-card .card-body > *:not(:first-child) {
-    margin-top: 3rem;
-  }
-.card{
-    box-shadow: 0 0 6px 0 rgba(27, 50, 142, 0.2) !important;
-}
-.review-content .card:hover{
-    box-shadow: 0 0 14px 4px rgba(27, 50, 142, 0.2) !important;
-    transition: box-shadow 0.5s ease;
-}
-.sidebar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 250px;
-    background: #fff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, .3);
-    padding: 20px;
-    transform: translateX(100%);
-    transition: transform .3s ease-in-out;
-}
-
-.sidebar-enter-active,
-.sidebar-leave-active {
-    transition: transform .3s ease-in-out;
-}
-
-.sidebar-enter,
-.sidebar-leave-to {
-    transform: translateX(100%);
-}
-
-.main-content {
-    transition: margin-right .3s ease-in-out;
-}
-
-.main-content[style] {
-    margin-right: 250px;
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
-
-/*******************************
-     text-style
-  ********************************/
-
-.bold-link {
-    font-weight: bold;
-}
-
-.text-muted {
-    color: #c8c8c8 !important;
-}
-
-.fw-bold {
-    font-weight: bold !important;
-}
-
-.custom-highlight {
-    background: linear-gradient(transparent 50%, #ffe7eb 50%);
-}
-
-.btn-lg {
-    font-size: 1rem !important;
-}
-
-
-/*******************************
-     소셜 로그인
-  ********************************/
 
 .google,
 .naver,
@@ -286,13 +283,13 @@
         display: flex;
         flex-wrap: nowrap;
         overflow-x: auto;
-        -webkit-overflow-scrolling: touch; /* iOS에서 스크롤 성능 개선 */
+        -webkit-overflow-scrolling: touch; 
     }
 
     .review-content .col {
-        flex: 0 0 auto; /* 카드가 그 내용에 맞게 너비를 설정하되, 줄어들지는 않도록 함 */
-        width: 50%; /* 카드의 너비를 화면의 50%로 설정, 필요에 따라 조정 */
-        max-width: none; /* 부트스트랩이 .col에 적용하는 최대 너비를 무시 */
+        flex: 0 0 auto; 
+        width: 50%;
+        max-width: none; 
     }
     .login-v2 h3:before{
         width: 70px;
@@ -314,4 +311,209 @@
     }
 @media all and (max-width:340px){
 
+}
+@media (max-width: 340px) {
+    .app-specific-size {
+        display: block;
+    }
+}
+
+
+@media (min-width: 341px) and (max-width: 640px) {
+    .app-specific-size {
+        display: block;
+    }
+}
+.login-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.app-specific-size {
+    display: none;
+}
+
+.layout-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.btn-apply {
+    color: #aaaebe;
+}
+
+.banner {
+    grid-column: 1 / -1;
+    background-color: #f5f5f6;
+    padding: 20px;
+    text-align: center;
+    height: 370px;
+    max-height: 370px;
+}
+
+.main-content {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+
+.login {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* review style */
+.all-view::after {
+    background-image: url('/resources/img/Icon-right.png');
+    width: 13px;
+    height: 13px;
+}
+
+.layout-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.btn-apply {
+    color: #aaaebe;
+}
+
+.btn-apply i {
+    transition: all .3s;
+}
+
+.btn-apply img {
+    transition: transform .3s;
+}
+
+.btn-apply:hover img {
+    transform: translateX(8px);
+}
+.spacing {
+    margin: 10px;
+}
+.car-imges {
+    width: 100%;
+    height: 126px;
+    background-image: url('/resources/img/car.png');
+    background-size: cover;
+}
+
+.apply-top {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.apply-top .tit {
+    margin-right: 10px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.review-title {
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    text-align: left;
+}
+.filled-star {
+    background-image: url('/resources/img/filled_star.png');
+}
+
+.empty-star {
+    background-image: url('/resources/img/emp_star.png');
+}
+
+.card-body>*:first-child {
+    margin-top: 0.25rem;
+}
+
+.card-body>*:not(:first-child) {
+    margin-top: 0.25rem;
+}
+
+.card-body>*:last-child {
+    margin-bottom: 0.25rem;
+}
+
+.card-body>*:not(:first-child) {
+    margin-top: 0.5rem;
+}
+
+.rating .star {
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    margin-right: 6px;
+    background-size: contain;
+}
+@media (max-width: 340px) {
+    .app-specific-size {
+        display: block;
+    }
+}
+
+
+@media (min-width: 341px) and (max-width: 640px) {
+    .app-specific-size {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .layout-container {
+     display: inline;
+    }
+    .banner,
+    .main-content,
+    .login {
+        grid-column: 1;
+    }
+    .login-card{
+        --bs-gutter-x: none !important; 
+    }
+}
+@media (max-width: 768px) {
+    .layout-container {
+        grid-template-columns: 1fr;
+        gap: 20px !important;
+    }
+
+    .review-content {
+        overflow-x: hidden;
+        padding: 0.5rem;
+    }
+
+    .review-content>.row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .review-content>.row>.col {
+        flex: 0 0 auto;
+        width: 90%;
+    }
+    .offcanvas{
+        max-width: 75% !important;
+    }
+
+    .banner,
+    .main-content,
+    .login {
+        grid-column: 1;
+    }
+
+    .btn-apply {
+        margin-right: 0.5rem !important;
+    }
+    .container{
+        --bs-gutter-x: none;
+    }
 }
