@@ -13,7 +13,7 @@
             <div class="review-content">
                 <div class="apply-top text-start">
                     <h3 class="review-title">다른 사람들의 이용후기에요</h3>
-                    <a href="" class="btn-apply">전체보기<i class="ri-arrow-right-s-line"></i></a>
+                    <a href="" class="btn-apply">전체보기 <img src="../../img/Icon-right.png" class="ms-2" alt="설명"></a>
                 </div>
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     <div class="col">
@@ -186,6 +186,11 @@
         }
     }
 
+    .all-view::after{
+        background-image: url('/resources/img/Icon-right.png');
+        width: 13px;
+        height: 13px;
+    }
     .layout-container {
         display: grid;
         grid-template-rows: auto 1fr;
@@ -199,10 +204,6 @@
 
     .btn-apply i {
         transition: all .3s;
-    }
-
-    .ri-arrow-right-s-line:before {
-        content: "\ea6e";
     }
 
     .banner {
@@ -220,8 +221,12 @@
         padding: 20px;
         border: 1px solid #ddd;
     }
-
-
+    .btn-apply img {
+    transition: transform .3s;
+    }
+    .btn-apply:hover img {
+    transform: translateX(8px); 
+    }
     .login {
         background: #f9f9f9;
         padding: 20px;

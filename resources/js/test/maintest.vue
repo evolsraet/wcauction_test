@@ -4,21 +4,24 @@
         <div class="main-contenter">
         <div class="my-5 app-specific-size">
             <div class="text-left">
-                <h2 class="mb-4 fw-bold ml-3">빠르고 간편한</h2>
+                <h1 class="mb-4 fw-bold ms-2">빠르고 간편한</h1>
                 <img src="../../img/logo.png" class="logo mb-3 mr-2">
-                <p class="bold-link ml-3">내 차 판매, <mark class="custom-highlight">위카</mark>에서 도와드릴게요!</p>
+                <p class="bold-link ms-2">내 차 판매, <mark class="custom-highlight">위카</mark>에서 도와드릴게요!</p>
             </div>
+            <div class="video-container my-4">
+                                <video width="100%" autoplay loop muted>
+                                    <source src="../../img/video/mainvideo.mp4" type="video/mp4">
+                                </video>
+                                </div>
         </div>
         <div class="layout-container">
-            <div class="banner"><div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-            </div>
-            </div>
+            <div class="banner">
+                <p> 배너 </p>
             </div>
             <div class="review-content">
                 <div class="apply-top text-start">
                     <h3 class="review-title">다른 사람들의 이용후기에요</h3>
-                    <a href="" class="btn-apply">전체보기<i class="ri-arrow-right-s-line"></i></a>
+                    <a href="" class="btn-apply">전체보기 <img src="../../img/Icon-right.png" class="ms-2" alt="설명"></a>
                 </div>
                 <div class="row row-cols-1 row-cols-md-2 g-4">
                     <div class="col">
@@ -99,15 +102,14 @@
                                 <input type="text" class="form-control border-0 border-bottom my-4" placeholder="소유자가 누구인가요?" v-model="username">
                             </div>
                             <div>
-                                <input type="text" class="form-control border-0 border-bottom mb-5" placeholder="차량 번호를 입력해주세요." v-model="carNumber">
+                                <input type="text" class="form-control border-0 border-bottom mb-4" placeholder="차량 번호를 입력해주세요." v-model="carNumber">
                             </div>
                             <!--영상-->
-
-                            <div class="video-container my-4" style="background-color: #ccc;">
+                            <div class="web-video-container video-container my-4">
                                 <video width="100%" autoplay loop muted>
-                                    <source :src="videoSource" type="video/mp4">
+                                    <source src="../../img/video/mainvideo.mp4" type="video/mp4">
                                 </video>
-                            </div>
+                                </div>
                              <!-- 로그인 버튼 -->
                              <div class="flex items-center justify-end my-2">
                                 <button class="btn btn-primary" :class="{ 'opacity-25': processing }" :disabled="processing">
@@ -131,20 +133,9 @@
     </div>
 </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            videoSource: '/img/video/mainvideo.mp4'
-        }
-    }
-}
-</script>
 <script setup>
     import {useReview} from '@/composables/review';
     import useAuth from '@/composables/auth' 
-
-
 
     const {
         loginForm,
@@ -256,11 +247,11 @@ export default {
     }
 
     @media (max-width: 768px) {
-        .layout-container {
-            grid-template-columns: 1fr;
-        }
-        .review-content {
-        overflow-x: hidden;
+    .layout-container {
+        grid-template-columns: 1fr;
+    }
+    .review-content {
+    overflow-x: hidden;
     }
     .review-content > .row {
         display: flex;
@@ -275,11 +266,14 @@ export default {
         .login {
             grid-column: 1;
         }
+        .btn-apply{
+            margin-right: 0.5rem !important;
+        }
     }
 
     .rating .star {
         display: inline-block;
-        width: 21px;
+        width: 20px;
         height: 19px;
         margin-right: 6px;
         background-size: contain;
@@ -310,5 +304,10 @@ export default {
     }
     .login-card{
 
+    }
+    @media (min-width: 768px){
+    .layout-container {
+    gap: 20px !important;
+    }
     }
 </style>
