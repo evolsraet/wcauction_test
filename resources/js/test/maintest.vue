@@ -5,7 +5,7 @@
         <div class="my-5 app-specific-size">
             <div class="text-left">
                 <h2 class="mb-4 fw-bold ml-3">빠르고 간편한</h2>
-                <img src="@/resources/img/logo.png" class="logo mb-3 mr-2">
+                <img src="../../img/logo.png" class="logo mb-3 mr-2">
                 <p class="bold-link ml-3">내 차 판매, <mark class="custom-highlight">위카</mark>에서 도와드릴게요!</p>
             </div>
         </div>
@@ -160,6 +160,7 @@ export default {
 
 </script>
 <style>
+/* 임의로 스타일 넣음 추후 sass에 추가 */
 .login-card {
   transition: all 0.3s ease-in-out;
 }
@@ -258,7 +259,17 @@ export default {
         .layout-container {
             grid-template-columns: 1fr;
         }
-
+        .review-content {
+        overflow-x: hidden;
+    }
+    .review-content > .row {
+        display: flex;
+        flex-wrap: nowrap; 
+    }
+    .review-content > .row > .col {
+        flex: 0 0 auto; 
+        width: 90%; 
+    }
         .banner,
         .main-content,
         .login {
