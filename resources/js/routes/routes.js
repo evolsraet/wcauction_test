@@ -119,6 +119,13 @@ export default [{
                     import ("../test/registertest1.vue"),
                 beforeEnter: guest,
             },
+            {
+                path: "modal",
+                name: "test.modal",
+                component: () =>
+                    import ("../modaltest/modal.vue"),
+                beforeEnter: guest,
+            },
         ],
     },
     {
